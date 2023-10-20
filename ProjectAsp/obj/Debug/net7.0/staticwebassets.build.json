@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "5GFHePvWGb+sdvSwIxFOdcotD91Q2qmaPthUh70Nikw=",
+  "Source": "ProjectAsp",
+  "BasePath": "_content/ProjectAsp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProjectAsp\\wwwroot",
+      "Source": "ProjectAsp",
+      "ContentRoot": "D:\\project\\ProjectAsp\\ProjectAsp\\wwwroot\\",
+      "BasePath": "_content/ProjectAsp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
