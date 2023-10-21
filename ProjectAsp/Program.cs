@@ -10,8 +10,11 @@ var connectionstring = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseNpgsql(connectionstring));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureSwaggerGen(option=>
+    option.CustomSchemaIds(t=>$"{t.FullName!.Replace("+",".")}"));
 builder.Services.AddTransient<ICompanyServices, CompanyServices>();
 builder.Services.AddTransient<IBranchServices, BranchServices>();
 builder.Services.AddTransient<IProductServices,ProductServices>();

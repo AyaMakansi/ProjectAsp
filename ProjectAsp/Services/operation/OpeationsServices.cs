@@ -3,8 +3,16 @@ namespace ProjectAsp.Services.operation;
 
 public class OpeationsServices:IOperationServices
 {
-    public Task<Operation> Add(Operation operation)
+    private readonly ApplicationDBContext _context;
+
+    public OpeationsServices(ApplicationDBContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task<Operation> Add(Operation operation)
+    {
+       await _context.Operations.AddAsync(operation);
+        _context.SaveChanges();
+        return operation;
     }
 }

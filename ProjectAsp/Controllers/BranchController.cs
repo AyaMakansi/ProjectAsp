@@ -17,15 +17,27 @@ public class BranchController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddBranchAsync([FromBody]BranchDto dto)
     {
-        var branch = new Branch
+        if(dto.Parent==null)
+       { var branch = new Branch
         {
             Branch_Name = dto.Branch_Name,
             Branch_Location = dto.Branch_Location,
-            Type = (Branch.Branch_type)dto.Type,
+            Type = 0,
             Comp_Id = dto.Comp_Id,
-            Parent = dto.Parent,
         };
         await _branchservices.Add(branch);
         return Ok(branch);
+        }else{
+            var branch = new Branch
+                    {
+                        Branch_Name = dto.Branch_Name,
+                        Branch_Location = dto.Branch_Location,
+                        Type = 1,
+                        Comp_Id = dto.Comp_Id,
+                        Parent=dto.Parent,    
+                     };
+                    await _branchservices.Add(branch);
+                    return Ok(branch);
+        }
     }
 }
