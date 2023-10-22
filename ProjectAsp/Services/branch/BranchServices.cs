@@ -1,5 +1,7 @@
 
 
+using Microsoft.EntityFrameworkCore;
+
 namespace ProjectAsp.Services.branch;
 
 public class BranchServices:IBranchServices
@@ -15,5 +17,10 @@ public class BranchServices:IBranchServices
       await _context.Branches.AddAsync(branch);
       _context.SaveChanges();
       return branch;
+    }
+
+    public async Task<IEnumerable<Branch>> GetAll()
+    {
+        return  await _context.Branches.ToListAsync();
     }
 }

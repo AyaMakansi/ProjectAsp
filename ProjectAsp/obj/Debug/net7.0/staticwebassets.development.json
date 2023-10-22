@@ -1,1 +1,1 @@
-{"ContentRoots":["D:\\project\\ProjectAsp\\ProjectAsp\\wwwroot\\"],"Root":{"Children":null,"Asset":null,"Patterns":[{"ContentRootIndex":0,"Pattern":"**","Depth":0}]}}
+{"ContentRoots":["D:\\project\\ProjectAsp\\ProjectAsp\\wwwroot\\"],"Root":{"Children":{"product_images":{"Children":{"e792df41-9755-4fe5-8825-9ef8fadda431about3.jpg":{"Children":null,"Asset":{"ContentRootIndex":0,"SubPath":"product_images/e792df41-9755-4fe5-8825-9ef8fadda431about3.jpg"},"Patterns":null}},"Asset":null,"Patterns":null}},"Asset":null,"Patterns":[{"ContentRootIndex":0,"Pattern":"**","Depth":0}]}}

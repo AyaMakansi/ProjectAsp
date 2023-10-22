@@ -15,7 +15,7 @@ public class ApplicationDBContext:DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Operation>().HasKey(b => new { b.Branch_Id, b.Prouduct_Id });
-       
+          
     }
     public DbSet<Company> Companies {get;set;}
        public DbSet<Branch> Branches { get; set;}

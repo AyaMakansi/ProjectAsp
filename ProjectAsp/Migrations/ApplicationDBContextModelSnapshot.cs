@@ -22,7 +22,7 @@ namespace ProjectAsp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ProjectAsp.Models.branch.Branch", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Branch", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,25 +44,20 @@ namespace ProjectAsp.Migrations
                     b.Property<int>("Comp_Id")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Type")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("companyComp_Id")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ParentId");
 
-                    b.HasIndex("companyComp_Id");
-
                     b.ToTable("Branches");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.company.Company", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Company", b =>
                 {
                     b.Property<int>("Comp_Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +81,7 @@ namespace ProjectAsp.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.operation.Operation", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Operation", b =>
                 {
                     b.Property<int>("Branch_Id")
                         .HasColumnType("integer");
@@ -103,19 +98,14 @@ namespace ProjectAsp.Migrations
                     b.Property<int>("branchId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("productId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Branch_Id", "Prouduct_Id");
 
                     b.HasIndex("branchId");
 
-                    b.HasIndex("productId");
-
                     b.ToTable("Operations");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.product.Product", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,45 +130,27 @@ namespace ProjectAsp.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.branch.Branch", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Branch", b =>
                 {
-                    b.HasOne("ProjectAsp.Models.branch.Branch", "Parent")
+                    b.HasOne("ProjectAsp.Models.Branch", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProjectAsp.Models.company.Company", "company")
-                        .WithMany()
-                        .HasForeignKey("companyComp_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
-
-                    b.Navigation("company");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.operation.Operation", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Operation", b =>
                 {
-                    b.HasOne("ProjectAsp.Models.branch.Branch", "branch")
+                    b.HasOne("ProjectAsp.Models.Branch", "branch")
                         .WithMany()
                         .HasForeignKey("branchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProjectAsp.Models.product.Product", "product")
-                        .WithMany()
-                        .HasForeignKey("productId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("branch");
-
-                    b.Navigation("product");
                 });
 
-            modelBuilder.Entity("ProjectAsp.Models.branch.Branch", b =>
+            modelBuilder.Entity("ProjectAsp.Models.Branch", b =>
                 {
                     b.Navigation("Children");
                 });

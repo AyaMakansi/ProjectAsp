@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 namespace ProjectAsp.Services.operation;
 
 public class OpeationsServices:IOperationServices
@@ -15,4 +17,10 @@ public class OpeationsServices:IOperationServices
         _context.SaveChanges();
         return operation;
     }
+    public async Task<IEnumerable<Operation>> GetAll()
+       {
+        return  await _context.Operations.ToListAsync();
+       }
+
+   
 }

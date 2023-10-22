@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5GFHePvWGb+sdvSwIxFOdcotD91Q2qmaPthUh70Nikw=",
+  "Hash": "+aBlc2bwIkkjESf4syWlcv2Vbsk7O3f1EktCY64u18k=",
   "Source": "ProjectAsp",
   "BasePath": "_content/ProjectAsp",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "D:\\project\\ProjectAsp\\ProjectAsp\\wwwroot\\product_images\\e792df41-9755-4fe5-8825-9ef8fadda431about3.jpg",
+      "SourceId": "ProjectAsp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project\\ProjectAsp\\ProjectAsp\\wwwroot\\",
+      "BasePath": "_content/ProjectAsp",
+      "RelativePath": "product_images/e792df41-9755-4fe5-8825-9ef8fadda431about3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\product_images\\e792df41-9755-4fe5-8825-9ef8fadda431about3.jpg"
+    }
+  ]
 }
